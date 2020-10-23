@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
+    "dev:prd": "NODE_ENV=production node bin/www",
     "prd": "NODE_ENV=production pm2 start bin/www --name ocr",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
