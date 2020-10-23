@@ -5,10 +5,12 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
-    "prd": "pm2 start bin/www --name ocr",
+    "prd": "NODE_ENV=production pm2 start bin/www --name ocr",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@4a/env": "^2.1.0",
+    "@koa/multer": "^3.0.0",
     "debug": "^4.2.0",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
@@ -19,6 +21,8 @@
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.3.1",
+    "koa2-cors": "^2.0.6",
+    "multer": "^1.4.2",
     "pug": "^3.0.0",
     "stylus": "0.54.8"
   },
