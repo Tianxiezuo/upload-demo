@@ -27,7 +27,7 @@ router.post('/upload', upload.single('file'), async (ctx, next) => {
     ctx.type = file.mimetype
     ctx.body = appEnv.get({
         dev: [server, 'uploads', file.filename].join('/'),
-        production: [server, 'builds', file.filename, '.' + file.mimetype.slice(6)].join('/'),
+        production: [server, 'builds', file.filename + '.' + file.mimetype.slice(6)].join('/'),
     })
 })
 
