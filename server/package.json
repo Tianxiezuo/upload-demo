@@ -7,7 +7,8 @@
     "dev": "./node_modules/.bin/nodemon bin/www",
     "dev:prd": "NODE_ENV=production node bin/www",
     "prd": "NODE_ENV=production pm2 start bin/www --name ocr",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pm2": "pm2"
   },
   "dependencies": {
     "@4a/env": "^2.1.0",
@@ -28,6 +29,7 @@
     "stylus": "0.54.8"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "pm2": "^4.5.0"
   }
 }
