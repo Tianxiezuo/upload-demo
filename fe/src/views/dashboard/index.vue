@@ -1,7 +1,8 @@
 <template lang="pug">
 .dashboard-container
 
-    el-upload.upload-demo(drag :action="uploadURI" :on-success="success")
+    el-upload.upload-demo(drag :action="uploadURI" :on-success="success" :before-upload="beforeUpload" :on-error="error")
+        .loading(v-loading="loading" v-if="loading")
         i.el-icon-upload
         .el-upload__text 将文件拖到此处，或
             em 点击上传
@@ -11,6 +12,7 @@
 
 </template>
 <script>
+import { sleep } from 'sleepjs'
 import { uploadURI } from '@/config/host'
 
 export default {
@@ -20,6 +22,8 @@ export default {
         return {
             src: null,
             uploadURI,
+
+            loading: false
         }
     },
 
@@ -27,7 +31,17 @@ export default {
         success(response, file) {
             console.log(123, file)
             console.log(789, response)
+            this.loading = false
             this.src = response
+        },
+
+        async beforeUpload() {
+            this.loading = true
+        },
+
+        error(err) {
+            this.loading = false
+            this.$message.error('上传失败，请重试')
         }
     }
 }
@@ -45,7 +59,16 @@ export default {
 }
 
 .upload-demo {
+    position: relative;
     width: 360px;
     margin-bottom: 30px;
+}
+
+.loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 </style>

@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '好查查大数据科技',
+  title: '古文识别',
 
   /**
    * @type {boolean} true | false
